@@ -1,0 +1,50 @@
+{% extends 'evacuator/base.html'%}
+{% load my_tags %}
+{% block content %}
+
+<div class="container text-center">
+    <h1 class="jumbotron-heading"></h1>
+    <p class="lead">
+        {% for object in all_companies %}
+        {{ object.company }}
+        {% endfor %}
+
+            </p>
+    <a href="tel:+79026237000" class="btn btn-dark my-2">Свяжитесь с нами</a>
+
+<div class="images-row">
+        <img src="{{ MEDIA_URL }}15.png" style="width:400px; height:auto;">
+    </div>
+
+
+<div class="container">
+    <h3 class="jumbotron-heading text-left">Вопрос-ответ</h3>
+        </div>
+
+<div class="accordion mt-4" id="faqAccordion" style="max-width: 600px; margin-left: 0;">
+        {% for faq in all_question %}
+            <div class="card mb-3"> <!-- более тёмный серый -->
+                <div class="card-header text-left" style="background-color: #343a40;"id="heading{{ forloop.counter }}">
+                    <h2 class="mb-0">
+<button class="btn btn-link text-left font-weight-bold" type="button"
+        data-toggle="collapse" data-target="#collapse{{ forloop.counter }}"
+        aria-expanded="true" aria-controls="collapse{{ forloop.counter }}"
+        style="color: #fff;">
+    {{ faq.question }}
+</button>
+                    </h2>
+                </div>
+
+                <div id="collapse{{ forloop.counter }}" class="collapse" aria-labelledby="heading{{ forloop.counter }}" data-parent="#faqAccordion">
+                    <div class="card-body text-left">
+                        {{ faq.answer }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock %}

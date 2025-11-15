@@ -1,0 +1,30 @@
+{% extends 'evacuator/base.html'%}
+{% load my_tags %}
+{% block content %}
+
+<div class="container text-center">
+    <h1 class="jumbotron-heading">Наша техника</h1>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+        {% for object in object_list %}
+        <div class="col-md-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ object.name }}</h4>
+                </div>
+                <img src="{{ object.avatar | media_filter }}">
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

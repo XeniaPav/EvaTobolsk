@@ -1,0 +1,39 @@
+{% load my_tags %}
+<header>
+    <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-md-8">
+                    <h4 class="text-white">«ПАМЭЛ»</h4>
+                    <p class="text-white">Эвакуатор и газель в Тобольске круглосуточно</p>
+                    <p class="text-white">Звоните нам!</p>
+                    <p class="text-white">+7 982 925-68-19 +7 902 623-70-00</p>
+                    <img src="{{ MEDIA_URL }}11.png" style="width:200px; height:auto; display:block; margin-top:10px;">
+
+                </div>
+
+                <div class="col-md-4">
+                    <h4 class="text-white">Меню</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'evacuator:index' %}" class="text-white">Главная</a></li>
+                        <li><a href="{% url 'evacuator:service_list' %}" class="text-white">Услуги и цены</a></li>
+                        <li><a href="{% url 'evacuator:eva_list' %}" class="text-white">Техника</a></li>
+                        <li><a href="{% url 'evacuator:employees_list' %}" class="text-white">Сотрудники</a></li>
+                        <li><a href="{% url 'evacuator:company' %}" class="text-white">О нас</a></li>
+                        <li><a href="{% url 'evacuator:contact_form' %}" class="text-white">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>

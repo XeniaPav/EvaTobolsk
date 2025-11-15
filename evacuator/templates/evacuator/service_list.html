@@ -1,0 +1,39 @@
+{% extends 'evacuator/base.html'%}
+{% load my_tags %}
+{% block content %}
+
+<div class="container text-center">
+    <h1 class="jumbotron-heading">Услуги и цены</h1>
+</div>
+
+
+<div class="container text-center">
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Название</th>
+        <th scope="col">Стоимость</th>
+        <th scope="col">Описание</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for object in object_list %}
+    <tr>
+        <td>{{ object.service_name }}</td>
+        <td>{{ object.price }} руб.</td>
+        <td>{{ object.description }}</td>
+        <td>
+
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</div>
+
+
+
+{% endblock %}
