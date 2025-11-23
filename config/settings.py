@@ -9,9 +9,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = os.getenv("DEBUG", False) == "True"
+DEBUG = os.getenv("DEBUG", False) == "False"
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['localhost', '51.250.102.71', 'evatobolsk.ru', 'www.evatobolsk.ru', ]
 
 
 INSTALLED_APPS = [
@@ -96,15 +96,19 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
-STATICFILES_DIRS = (BASE_DIR / "static",)
+STATIC_ROOT = "/app/static"
+
+MEDIA_ROOT = "/app/media"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
 
 AUTH_USER_MODEL = "users.User"
 
+CSRF_TRUSTED_ORIGINS = [
+	"https://evatobolsk.ru",
+]
