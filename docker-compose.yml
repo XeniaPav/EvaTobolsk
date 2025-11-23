@@ -20,11 +20,13 @@ services:
     tty: true
     ports:
       - "9001:8000"
-    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: sh -c "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
     depends_on:
       - db
     volumes:
       - .:/app
+      - /home/admin_evatobolsk/EvaTobolsk/static:/app/static
+      - /home/admin_evatobolsk/EvaTobolsk/media:/app/media
     env_file:
       - .env
 
@@ -37,7 +39,9 @@ services:
       - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./static:/usr/share/nginx/static
+      - /home/admin_evatobolsk/EvaTobolsk/static:/home/admin_evatobolsk/EvaTobolsk/static
+      - /home/admin_evatobolsk/EvaTobolsk/media:/home/admin_evatobolsk/EvaTobolsk/media
+      - /etc/ssl:/etc/ssl:ro
     depends_on:
       - app
 
